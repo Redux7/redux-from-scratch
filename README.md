@@ -17,3 +17,17 @@ npm install --save redux
 npm install --save react-redux
 ```
 
+## After dependecies(packages) are installed we have to design a structure
+
+we are going to make three folders inside of src folder and <br />
+and another inportend file index.js is going to be outsite
+
++-- index.js
++-- src
+|   +-- actions
+|       +-- index.js
+|   +-- components
+|       +-- Counter.js
+|   +-- reducers
+|       +-- index.js
+
