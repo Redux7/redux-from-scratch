@@ -11,7 +11,7 @@ import counter from './reducers'
 const store = createStore(counter);
 
 ReactDOM.render(
-  <Provider >
+  <Provider store={store}>
     <Counter />
   </Provider>,
   document.getElementById('root')

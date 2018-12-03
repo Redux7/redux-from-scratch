@@ -3,6 +3,6 @@ const initialState = {
   count: 0
 }
 
-export default (initialState) => {
-  return initialState;
+export default (state = initialState) => {
+  return state;
 }
