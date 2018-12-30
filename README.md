@@ -1,4 +1,4 @@
-# Set up Redux form scretch
+# Set up Redux from scretch
 
 project is going to show steps to set up redux from scratch 
 
@@ -20,11 +20,11 @@ npm install --save react-redux
 ## After dependecies(packages) are installed we have to design a structure
 
 we are going to make three folders inside of src folder and <br />
-and another inportend file index.js is going to be outsite
+and another important file index.js is going to be outsite
 
 ``` bash
-|-- index.js
 |--  src
+|    |-- index.js
 |    |-- actions
 |        |-- index.js
 |    |-- components
@@ -32,7 +32,7 @@ and another inportend file index.js is going to be outsite
 |    |-- reducers
 |        |-- index.js
 ```
-## Wrap component(s) into Provider 
+## Wrap component(s) into Provider
 
 Next step would be wraping Provider component around parent component<br/>
 
@@ -56,7 +56,7 @@ import { Provider } from 'react-redux';
 ## Initialize and pass central Redux store
 
 in order to initialize central store we have to export createStore function
-form redux and import our reducer to pass it as the argument inside createStore
+from redux and import our reducer to pass it as the argument inside createStore
 
 ```
 import { createStore } from 'redux'
@@ -65,7 +65,7 @@ import counter from './reducers'
 const store = createStore(counter);
 ```
 
-As counter is our reducer we have to create indes.js inside of reducers folder
+As counter is our reducer we have to create index.js inside of reducers folder
 And create reducer function that returns state
 
 ### Right way to do it
@@ -120,13 +120,13 @@ then connect function connects this component to other parts of Redux architectu
 import { connect } from 'react-redux';
 ```
 
-at the bottom of the component(Count.js)
+at the bottom of the component(Counter.js)
 
 ```
 export default connect(mapStateToProps)(Counter);
 ```
 
-now props are acceseble inside of the compoent 
+now props are acceseble inside of the component
 
 ```
  <p>{this.props.count}</p>
