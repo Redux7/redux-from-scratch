@@ -32,30 +32,9 @@ and another important file index.js is going to be outsite
 |    |-- reducers
 |        |-- index.js
 ```
-## Wrap component(s) into Provider
-
-Next step would be wraping Provider component around parent component<br/>
-
-```
-ReactDOM.render(
-  <Provider >
-    <Counter />
-  </Provider>,
-  document.getElementById('root')
-);
-```
-
-Provider is where state of whole app lives <br/>
-
-to use it we have to import Provider from react-redux library
-
-```
-import { Provider } from 'react-redux';
-```
-
 ## Initialize and pass central Redux store
 
-in order to initialize central store we have to export createStore function
+in order to initialize central store we have to export createStore function<br/>
 from redux and import our reducer to pass it as the argument inside createStore
 
 ```
@@ -93,6 +72,27 @@ export default (initialState) => {
   return initialState;
 }
 ```
+## Wrap component(s) into Provider
+
+Next step would be wraping Provider component around parent component<br/>
+
+```
+ReactDOM.render(
+  <Provider >
+    <Counter />
+  </Provider>,
+  document.getElementById('root')
+);
+```
+
+Provider is where state of whole app lives <br/>
+
+to use it we have to import Provider from react-redux library
+
+```
+import { Provider } from 'react-redux';
+```
+
 
 then we just pass it as props to Provider to make it accessible everywhere
 
@@ -102,9 +102,9 @@ then we just pass it as props to Provider to make it accessible everywhere
 
 ## Pass state as prop
 
-in order to access state as a prop inside the component(Counter.js) we will have to
-create mapStateToProp function, this function passes to the props just
-relevant parts of the state instead of whole state
+in order to access state as a prop inside the component(Counter.js) we will have to<br/>
+create mapStateToProp function inside of the component that needs this props,<br/>
+this function passes to the props just relevant parts of the state instead of whole state
 
 ```
 const mapStateToProps = (state) => {
@@ -132,3 +132,56 @@ now props are acceseble inside of the component
  <p>{this.props.count}</p>
 ```
 
+___
+
+# Actions
+
+Afrer we could reach our state, we can add actions
+
+in actions folder creage index.js <br />
+action is just an object that returns some information for reducer <br/>
+this is what our action is look like
+
+```
+export const increment = () => {
+  return {
+    type: 'INCREMENT',
+    payload: 1
+  }
+}
+```
+
+action creator is a function that returns action(object)
+
+afrer that we will have to import action to the component
+
+```
+import { increment } from '../actions'
+```
+
+and call it somewhere. In our case we call it onClick
+
+```
+ <button onClick={() => this.props.increment()}>Increment</button>
+ ```
+
+ and connect anction(increment) to the redux eco system
+
+ ```
+
+export default connect(mapStateToProps, { increment })(Counter);
+```
+
+#### Finaly add switch statement to the reducer
+
+```
+
+export default (state = initialState, action) => {
+  switch(action.type) {
+    case 'INCREMENT':
+      return { ...state, count: state.count + action.payload}
+    default:
+      return state
+  }
+}
+```

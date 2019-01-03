@@ -1,5 +1,6 @@
 import React,  { Component } from 'react';
 import { connect } from 'react-redux';
+import { increment } from '../actions'
 
 class Counter extends Component {
 
@@ -8,7 +9,7 @@ class Counter extends Component {
     return(
       <div>
         <p>{this.props.count}</p>
-        <button>Increment</button>
+        <button onClick={() => this.props.increment()}>Increment</button>
         <button>Decrement</button>
       </div>
 
@@ -24,4 +25,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps, { increment })(Counter);
