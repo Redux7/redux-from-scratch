@@ -1,6 +1,6 @@
 # Set up Redux from scretch
 
-project is going to show steps to set up redux from scratch 
+project is going to show steps to set up redux from scratch
 
 create a project with npx
 
@@ -19,8 +19,8 @@ npm install --save react-redux
 
 ## After dependecies(packages) are installed we have to design a structure
 
-we are going to make three folders inside of src folder and <br />
-and another important file index.js is going to be outsite
+we are going to make three folders and index.js that already<br />
+exist inside of src folder
 
 ``` bash
 |--  src
